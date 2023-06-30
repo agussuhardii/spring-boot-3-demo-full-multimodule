@@ -1,0 +1,28 @@
+plugins {
+    id "org.springframework.boot" version "${springBootVersion}"
+    id 'io.spring.dependency-management' version "${dependencyManagement}"
+    id 'java'
+}
+
+group = "${packageGroup}"
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = "${javaVersion}"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.liquibase:liquibase-core'
+    runtimeOnly 'org.postgresql:postgresql'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
+
+    implementation project(':library')
+
+    developmentOnly("org.springframework.boot:spring-boot-docker-compose")
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}

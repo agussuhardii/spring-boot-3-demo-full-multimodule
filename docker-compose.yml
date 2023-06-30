@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  postgres:
+    container_name: "spring-boot-3-demo-full-multimodule"
+    image: library/postgres:14
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: psql
+      POSTGRES_USER: psql
+      POSTGRES_PASSWORD: password

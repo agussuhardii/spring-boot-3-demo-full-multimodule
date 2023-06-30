@@ -1,0 +1,10 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 1
+      author: agus.suhardii@gmail.com
+
+  - include:
+      file: ddl/20230629_init order.sql
+      relativeToChangelogFile: true
+
