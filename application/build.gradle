@@ -22,6 +22,7 @@ dependencies {
 
     implementation project(':library')
     implementation project(':user')
+    implementation project(':product')
 
     developmentOnly("org.springframework.boot:spring-boot-docker-compose")
 
