@@ -1,0 +1,40 @@
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
+
+plugins {
+    id "org.springframework.boot" version "${springBootVersion}" apply false
+    id 'io.spring.dependency-management' version "${dependencyManagement}"
+    id 'java'
+}
+
+group = "${packageGroup}"
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = "${javaVersion}"
+
+repositories {
+    mavenCentral()
+}
+
+dependencyManagement {
+    imports {
+        mavenBom SpringBootPlugin.BOM_COORDINATES
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    implementation project(':library')
+    implementation project(':product')
+    implementation project(':user')
+
+    implementation "com.google.guava:guava:${googleGuava}"
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+}
