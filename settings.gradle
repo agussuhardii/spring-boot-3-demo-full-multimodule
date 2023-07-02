@@ -1,4 +1,5 @@
-rootProject.name = 'gs-multi-module'
+rootProject.name = 'spring-boot-multimodule'
 
 include 'library'
 include 'application'
+include 'user'
