@@ -22,3 +22,9 @@ databaseChangeLog:
       labels: order scheme
       file: module/order/order.scheme.yaml
       relativeToChangelogFile: true
+
+  - include:
+      author: agus suhardi
+      labels: order scheme
+      file: module/wallet/wallet.scheme.yaml
+      relativeToChangelogFile: true
