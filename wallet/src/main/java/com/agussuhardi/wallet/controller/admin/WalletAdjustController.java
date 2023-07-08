@@ -1,9 +1,9 @@
-package com.agussuhardi.wallet.controller;
+package com.agussuhardi.wallet.controller.admin;
 
 import com.agussuhardi.library.config.GlobalApiResponse;
 import com.agussuhardi.wallet.service.WalletAdjustAdminService;
-import com.agussuhardi.wallet.vo.WalletWalletAdjustQueryVO;
-import com.agussuhardi.wallet.vo.WalletWalletAdjustVO;
+import com.agussuhardi.wallet.vo.WalletAdjustQueryVO;
+import com.agussuhardi.wallet.vo.WalletAdjustVO;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +25,7 @@ public class WalletAdjustController {
     private final WalletAdjustAdminService walletAdjustAdminService;
 
     @PostMapping
-    public ResponseEntity<?> register(@RequestBody @Valid WalletWalletAdjustVO vo) {
+    public ResponseEntity<?> register(@RequestBody @Valid WalletAdjustVO vo) {
         return new GlobalApiResponse<>(walletAdjustAdminService.add(vo), HttpStatus.CREATED);
     }
 
@@ -36,7 +36,7 @@ public class WalletAdjustController {
     }
 
     @GetMapping
-    public ResponseEntity<?> query(@Valid WalletWalletAdjustQueryVO vO, Pageable pageable) {
+    public ResponseEntity<?> query(@Valid WalletAdjustQueryVO vO, Pageable pageable) {
         return new GlobalApiResponse<>(walletAdjustAdminService.query(vO, pageable), HttpStatus.OK);
     }
 }

@@ -1,14 +1,14 @@
 package com.agussuhardi.wallet.service.impl;
 
 import com.agussuhardi.library.dto.CreateDTO;
-import com.agussuhardi.wallet.dto.WalletWalletAdjustDTO;
+import com.agussuhardi.wallet.dto.WalletAdjustDTO;
 import com.agussuhardi.wallet.entity.WalletAdjust;
 import com.agussuhardi.wallet.entity.enumeric.WalletAdjustStatus;
 import com.agussuhardi.wallet.repository.WalletAdjustRepository;
 import com.agussuhardi.wallet.service.WalletAdjustAdminService;
 import com.agussuhardi.wallet.service.WalletCreditService;
-import com.agussuhardi.wallet.vo.WalletWalletAdjustQueryVO;
-import com.agussuhardi.wallet.vo.WalletWalletAdjustVO;
+import com.agussuhardi.wallet.vo.WalletAdjustQueryVO;
+import com.agussuhardi.wallet.vo.WalletAdjustVO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
@@ -28,7 +28,7 @@ public class WalletAdjustAdminServiceImpl implements WalletAdjustAdminService {
 
     @Override
     @Transactional(isolation= Isolation.REPEATABLE_READ)
-    public CreateDTO add(WalletWalletAdjustVO vO) {
+    public CreateDTO add(WalletAdjustVO vO) {
         var adjust = new WalletAdjust();
         BeanUtils.copyProperties(vO, adjust);
         adjust.setStatus(WalletAdjustStatus.SUCCESS);
@@ -38,19 +38,19 @@ public class WalletAdjustAdminServiceImpl implements WalletAdjustAdminService {
     }
 
     @Override
-    public WalletWalletAdjustDTO getById(String id) {
+    public WalletAdjustDTO getById(String id) {
         WalletAdjust original = requireOne(id);
         return toDTO(original);
     }
 
     @Override
-    public Page<WalletWalletAdjustDTO> query(WalletWalletAdjustQueryVO vO, Pageable pageable) {
+    public Page<WalletAdjustDTO> query(WalletAdjustQueryVO vO, Pageable pageable) {
 //        Slice<?> e = walletAdjustRepository.findAll(pageable);
         return walletAdjustRepository.findAll(pageable).map(this::toDTO);
     }
 
-    private WalletWalletAdjustDTO toDTO(WalletAdjust original) {
-        WalletWalletAdjustDTO bean = new WalletWalletAdjustDTO();
+    private WalletAdjustDTO toDTO(WalletAdjust original) {
+        WalletAdjustDTO bean = new WalletAdjustDTO();
         BeanUtils.copyProperties(original, bean);
         return bean;
     }

@@ -1,9 +1,9 @@
 package com.agussuhardi.wallet.service;
 
 import com.agussuhardi.library.dto.CreateDTO;
-import com.agussuhardi.wallet.dto.WalletWalletAdjustDTO;
-import com.agussuhardi.wallet.vo.WalletWalletAdjustQueryVO;
-import com.agussuhardi.wallet.vo.WalletWalletAdjustVO;
+import com.agussuhardi.wallet.dto.WalletAdjustDTO;
+import com.agussuhardi.wallet.vo.WalletAdjustQueryVO;
+import com.agussuhardi.wallet.vo.WalletAdjustVO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -13,9 +13,9 @@ import org.springframework.data.domain.Pageable;
  * @project spring-boot-multimodule
  */
 public interface WalletAdjustAdminService {
-    CreateDTO add(WalletWalletAdjustVO vO);
+    CreateDTO add(WalletAdjustVO vO);
 
-    WalletWalletAdjustDTO getById(String id);
+    WalletAdjustDTO getById(String id);
 
-    Page<WalletWalletAdjustDTO> query(WalletWalletAdjustQueryVO vO, Pageable pageable);
+    Page<WalletAdjustDTO> query(WalletAdjustQueryVO vO, Pageable pageable);
 }
