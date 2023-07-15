@@ -39,6 +39,13 @@ services:
     networks:
       - local_network
 
+  zipkin:
+    container_name: "zipkin_multi_module"
+    image: openzipkin/zipkin:2
+    ports:
+      - '9411:9411'
+
+
 networks:
   local_network:
     name: local_network
